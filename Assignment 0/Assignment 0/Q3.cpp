@@ -42,7 +42,7 @@ int main(int argc,char*arg[])
 	char buffer[100];
 	int i = 0;
 	std::string b=string(arg[1]);
-	std::string a="q1_"+b+".txt";
+	std::string a="q3_"+b+".txt";
 
 	fin.open(a);
 		if (fin.is_open())
