@@ -33,12 +33,22 @@ void reverse(char str[])
 	}
 	fout<<str;
 }
-
+bool check(string str)
+{
+	bool flag = false;
+	for (int l = 0; l < str.length(); l++)
+	{
+		if (str[l] == 'a' || str[l] == 'e' || str[l] == 'i' || str[l] == 'o' || str[l] == 'u' ||
+			str[l] == 'A' || str[l] == 'E' || str[l] == 'I' || str[l] == 'O' || str[l] == 'U')
+			flag = true;
+	}
+	return flag;
+}
 // Driver code 
 int main(int argc,char*arg[])
 {
 	ifstream fin;
-	char red;
+	string red;
 	char buffer[100];
 	int i = 0;
 	std::string b=string(arg[1]);
@@ -50,12 +60,16 @@ int main(int argc,char*arg[])
 			while (!fin.eof())
 			{
 			fin >> red;
-			buffer[i++] = red;
-
+			//buffer[i++] = red;
+				if (check(red)==false)
+				{
+					reverse(red.begin(), red.end());
+				}
+				cout << red<<"  ";
 			}
-			buffer[i] = '\0';
-			reverse(buffer);
-			cout << buffer;
+			//buffer[i] = '\0';
+			//reverse(buffer);
+			//cout << buffer;
 		}
 		else
 		{

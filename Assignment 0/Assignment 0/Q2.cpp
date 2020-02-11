@@ -46,14 +46,18 @@ int main()
 {
 	ifstream fin;
 	ofstream fout;
-	fout.open("output.txt");
+	fout.open("output.txt",std::ios_base::app);
+	if (fout.is_open())
+	{
+		cout << "Opened";
+	}
 	int i = 0;
 	Info *details=new Info[100];
 	int opt = 0;
 	cout << "Press 1 to enter details:\n";
 	cout << "Press 2 to delete details:\n";
 	cout << "Press 3 to read details:\n";
-cout<<"Press -1 to exit\n";
+	cout<<"Press -1 to exit\n";
 	cin >> opt;
 		while (opt != -1)
 		{
@@ -71,11 +75,10 @@ cout<<"Press -1 to exit\n";
 
 				details[i++] = oneUnit;
 				//fout.open("output.txt", std::ofstream::out | std::ofstream::trunc);
-				//fout.clear();
+				fout.clear();
 					fout << details[i].rollno << "\t" << details[i].name << "\t" << details[i].email;
 					fout << endl;
-					cout << details[i].rollno << "\t" << details[i].name << "\t" << details[i].email << endl;
-
+					
 				
 			}
 			if (opt == 2)
@@ -106,21 +109,21 @@ cout<<"Press -1 to exit\n";
 						i--;
 					}
 					m = 0; n = 0;
-					fout.open("output.txt", std::ofstream::out | std::ofstream::trunc);
-//					fout.clear();
-
-					for (int p = 0; p < i; p++)
-					{
-						fout << details[p].rollno << "\t" << details[p].name << "\t" << details[p].email;
-						fout << endl;
-
-					}
+//					fout.open("output.txt", std::ofstream::out | std::ofstream::trunc);
+//					//fout.clear();
+//
+//					for (int p = 0; p < i; p++)
+//					{
+//						fout << details[p].rollno << "\t" << details[p].name << "\t" << details[p].email;
+//						fout << endl;
+//
+//					}
 				}
 				for (int j = 0; j < i; j++)
 				{
 					details[j].print();
-					fout.open("output.txt", std::ofstream::out | std::ofstream::trunc);
-					//fout.clear();
+					//fout.open("output.txt", std::ofstream::out | std::ofstream::trunc);
+					fout.clear();
 
 					for (int p = 0; p < i; p++)
 					{
